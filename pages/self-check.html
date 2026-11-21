@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#071c42" name="theme-color"/>
+<title>Find Your Starting Point | M.R.-Gen-C Psychiatry</title>
+<link href="../styles/self-check-1.css" rel="stylesheet"/></head>
+<body>
+<div class="page">
+<main class="shell">
+<section aria-labelledby="heading" class="top"><div><div class="eyebrow">A moment for yourself</div><h1 id="heading">What matters most <em>to you?</em></h1><p class="lead">Take a minute to reflect on what you have been experiencing and what you want from care. Choose anything that sounds familiar, then see a personalized conversation guide at the end.</p></div><div class="aside-intro"><strong>Private, simple, and on your terms.</strong><p>Your answers stay on this page. We do not send them to the practice. This is a starting point for a conversation, not a diagnostic test or a promise of treatment.</p></div></section>
+<section aria-label="Interactive self reflection" class="main">
+<div class="surface" id="choices"><div class="surface-head"><div><span class="kicker">01 / Recognize</span><h2>What feels familiar?</h2></div><span class="counter" id="countChip">0 selected</span></div>
+<div class="choice-list" id="choiceList">
+<button aria-pressed="false" class="choice" data-title="Medication questions" data-topic="Medication review" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>I've tried medication, but I still have questions.</strong><small>It helped a little, stopped helping, or came with side effects I want to discuss.</small></span></button>
+<button aria-pressed="false" class="choice" data-title="Racing thoughts and energy changes" data-topic="Attention, mood and energy" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>My thoughts, mood, or energy feel difficult to manage.</strong><small>My mind races, I feel overstimulated, or my motivation and energy shift.</small></span></button>
+<button aria-pressed="false" class="choice" data-title="Managing things outwardly" data-topic="Mood, anxiety and attention" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>I seem fine on the outside, but I'm struggling inside.</strong><small>Stress, anxiety, attention, or past experiences may be taking a toll.</small></span></button>
+<button aria-pressed="false" class="choice" data-title="Understanding my experience" data-topic="Understanding symptoms" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>I want to understand what I'm experiencing.</strong><small>I'm looking for a thoughtful conversation without feeling rushed or judged.</small></span></button>
+<button aria-pressed="false" class="choice" data-title="Whole person support" data-topic="Sleep and daily routines" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>I want a plan that considers more than medication.</strong><small>Sleep, daily routines, lifestyle, and my goals matter to me too.</small></span></button>
+<button aria-pressed="false" class="choice" data-title="Looking for a fresh start" data-topic="Exploring care options" type="button"><span aria-hidden="true" class="mark">✓</span><span><strong>I'm not sure where to begin.</strong><small>I would like help figuring out what questions to ask and what options exist.</small></span></button>
+</div><div class="list-foot"><p class="tiny-note">Choose as many, or as few, as you like.</p><button class="text-button" id="reset" type="button">Clear selections</button></div></div>
+<div class="right">
+<div class="surface panel priority-panel"><span class="kicker">02 / Your priorities</span><h3>What would make care feel worthwhile?</h3><p>Select up to two things you want most from your next appointment.</p><div class="priorities" id="priorities"><button aria-pressed="false" class="priority" type="button">Clearer answers</button><button aria-pressed="false" class="priority" type="button">Medication guidance</button><button aria-pressed="false" class="priority" type="button">Feeling heard</button><button aria-pressed="false" class="priority" type="button">Better daily balance</button><button aria-pressed="false" class="priority" type="button">A practical next step</button></div><p aria-live="polite" class="help" id="priorityHint">Choose up to two priorities.</p><div class="personal-note">
+<div class="personal-note-top"><div><span class="kicker">03 / In your own words</span><h3>Anything else you want Micah to know?</h3></div><span aria-live="polite" class="word-count" id="wordCount">0 / 150 words</span></div>
+<p>Add anything the checkboxes didn't capture. Your words will be included when you copy your conversation notes.</p>
+<label class="note-label" for="personalNote">My additional notes <span>(optional)</span></label>
+<textarea id="personalNote" maxlength="1200" placeholder="For example: what you've already tried, what has been difficult lately, or what you hope to discuss at your first appointment." rows="4"></textarea>
+<p class="note-privacy">This text stays in your browser. Nothing is sent to the practice automatically. Please share it only through a channel you trust.</p>
+</div>
+<div class="review-invite"><span class="kicker">04 / See your reflection</span><h3>A little clarity can be a powerful first step.</h3><p>We'll pull together what you selected, suggest questions to bring to your appointment, and show you how to reach out.</p><button class="cta reveal" id="showResults" type="button">See My Personal Reflection <span aria-hidden="true">→</span></button><p class="help">No score. No diagnosis. Just a thoughtful next step.</p></div></div>
+</div></section>
+<section aria-labelledby="resultHeading" class="results" hidden="" id="results" tabindex="-1">
+<div class="results-intro"><span class="kicker">YOUR PERSONAL REFLECTION</span><h2 id="resultHeading">You deserve care that takes your concerns seriously.</h2><p id="resultLead">Your selections can help you start a more focused conversation about what matters to you.</p></div>
+<div class="results-columns">
+<div class="results-meaning"><div class="result-eyebrow">WHAT YOUR ANSWERS SUGGEST DISCUSSING</div><h3 id="resultTitle">A conversation tailored to you</h3><p id="resultMessage"></p><div class="results-topic-label">Your conversation starters</div><div class="tags" id="topics"></div><p class="result-caveat">These are discussion topics, not medical findings or a judgment about whether this practice is right for you.</p></div>
+<div class="results-cta"><span class="mini">YOUR NEXT STEP</span><h3>Imagine leaving your first appointment with a clearer direction.</h3><p>You don't have to have the perfect words or all the answers before you reach out. At M.R.-Gen-C Psychiatry, you can ask about a thoughtful psychiatric evaluation, medication options when appropriate, and a plan built around your history and goals.</p><a class="cta booking" href="mailto:Mrgencpsychiatry@gmail.com?subject=Appointment%20Inquiry&amp;body=Hello%2C%20I%20would%20like%20to%20ask%20about%20scheduling%20an%20appointment." id="emailLink">Ask About an Appointment <span aria-hidden="true">→</span></a><button class="secondary" id="copyNotes" type="button">Copy My Conversation Notes</button><button class="secondary" id="downloadPdf" type="button">Download Inquiry Notes PDF ↓</button><p class="booking-caption">The button opens an email inquiry; an appointment is not booked until the practice confirms it.</p><p class="copy-status" id="copyStatus" role="status"></p></div>
+</div>
+<button class="edit-btn" id="editAnswers" type="button">← Change my answers</button>
+</section>
+<p class="footnote"><strong>Important:</strong> This self reflection is for informational purposes only. It does not diagnose any condition, assess the severity of symptoms, or confirm whether the practice is a good fit. If you are in immediate danger or experiencing a mental health emergency, call 911 or go to the nearest emergency department. In the United States, you can call or text 988 for crisis support.</p>
+</main></div>
+<script src="../scripts/self-check-1.js"></script>
+<script src="../scripts/self-check-2.js"></script></body></html>

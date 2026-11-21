@@ -1,0 +1,71 @@
+
+/* Meet Micah page only. The approved homepage styling remains untouched. */
+[hidden]{display:none!important}
+.meet-screen{background:#f3fafc;color:#0a2a4d}
+.meet-container{width:min(1280px,calc(100% - 112px));margin-inline:auto}
+.meet-hero{background:linear-gradient(112deg,#dceff7 0%,#f4fbfe 50%,#e7f6ef 100%);overflow:hidden}
+.meet-grid{display:grid;grid-template-columns:minmax(345px,.86fr) minmax(0,1.14fr);gap:clamp(48px,5vw,90px);min-height:665px;align-items:center}
+.meet-portrait-zone{position:relative;align-self:stretch;display:flex;align-items:end;padding-top:54px}
+.meet-portrait-frame{width:100%;height:min(590px,100%);position:relative;overflow:hidden;border-radius:34px 34px 0 0;background:#b8c9cd;box-shadow:18px 20px 50px rgba(6,38,65,.13)}
+.meet-portrait-frame:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 48%,rgba(4,28,56,.52) 100%)}
+.meet-portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 13%;display:block}
+.meet-portrait-caption{position:absolute;bottom:43px;left:33px;right:30px;color:#fff;z-index:1;max-width:315px}
+.meet-portrait-caption strong{display:block;font:italic 28px/1.22 Georgia,serif;margin-top:10px}
+.meet-kicker-light{text-transform:uppercase;letter-spacing:.17em;font-weight:800;font-size:12px;color:#b9f17a}
+.meet-copy{padding:65px 0 68px}
+.meet-eyebrow,.meet-section-label{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:#086a3d}
+.meet-eyebrow:before,.meet-section-label:before{content:'';width:5px;height:25px;background:linear-gradient(#befa45,#169c3b);border-radius:99px;flex:none}
+.meet-copy h1{font:500 clamp(48px,4.1vw,66px)/1.09 Georgia,serif;letter-spacing:-.045em;color:#08264c;margin:22px 0 12px;max-width:none}
+.meet-copy h1 span{color:#188f33;font-style:italic;white-space:normal;display:inline;font-size:.73em;letter-spacing:-.035em}
+.meet-credential{font-weight:800;color:#0d3560;text-transform:uppercase;letter-spacing:.095em;font-size:clamp(14px,1.17vw,17px);line-height:1.5;max-width:none;margin:0 0 28px}
+.meet-lead{font:italic 500 26px/1.36 Georgia,serif;color:#0a3859;margin:0 0 16px;max-width:30ch}
+.meet-description{font-size:18px;line-height:1.69;color:#365770;margin:0;max-width:56ch}
+.meet-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:29px}.meet-primary{font-size:16px;min-height:54px}
+.meet-outline{min-height:54px;border:1.5px solid #41748e;padding:16px 25px;border-radius:99px;text-decoration:none;font-weight:800;color:#173f5e;background:#ffffffb8;display:inline-flex;align-items:center}
+.meet-details{background:#fff;padding:78px 0 82px}
+.meet-details-head{display:grid;grid-template-columns:1.25fr .75fr;align-items:end;gap:55px;margin-bottom:34px}
+.meet-details h2,.meet-philosophy h2,.meet-last h2{font:600 clamp(37px,3vw,48px)/1.12 Georgia,serif;letter-spacing:-.03em;color:#09294d;margin:18px 0 0}
+.meet-details h2 em,.meet-philosophy h2 em,.meet-last h2 em{color:#168f34;font-weight:500}
+.meet-details-head>p{font-size:17px;line-height:1.6;color:#49667b;margin:0}
+.meet-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.meet-feature{padding:28px 26px 26px;background:#f1f8fa;border-top:3px solid #83d645;border-radius:0 0 18px 18px}
+.meet-feature-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:linear-gradient(145deg,#defaad,#85e044);color:#073859;box-shadow:0 6px 18px #28652a24}
+.meet-feature-icon svg{width:32px;height:32px}.meet-feature h3{font-size:23px;line-height:1.2;color:#09294d;margin:22px 0 12px}.meet-feature p{font-size:16px;line-height:1.65;color:#3d5d73;margin:0}.meet-feature p strong{color:#092c51}
+.meet-philosophy{padding:82px 0 86px;background:linear-gradient(120deg,#083253,#085b64);color:#fff}
+.meet-image-grid{display:grid;grid-template-columns:.75fr 1.12fr .75fr;gap:34px;align-items:center}
+.meet-photo-tile{position:relative;border-radius:22px;overflow:hidden;min-height:365px;background:#aac7b3;box-shadow:0 20px 42px #041e2b36}
+.meet-photo-tile img{display:block;width:100%;height:365px;object-fit:cover;object-position:center}
+.meet-photo-tile:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#041e32b9)}
+.meet-photo-tile span{position:absolute;left:20px;bottom:24px;color:white;font:italic 24px/1.15 Georgia,serif;z-index:1;max-width:220px}
+.meet-photo-tile.foliage img{object-position:center}
+.meet-philosophy-copy .meet-section-label{color:#b8fa84}
+.meet-philosophy h2{color:white;font-size:clamp(38px,3.4vw,50px);margin:21px 0 19px}
+.meet-philosophy h2 em{color:#a8ef65}
+.meet-philosophy-copy p{font-size:17px;line-height:1.68;color:#d7eff3;margin:0 0 17px}
+.meet-text-link{font-size:16px;font-weight:800;color:#b2f476;text-decoration:underline;text-underline-offset:5px;display:inline-block;margin-top:13px}
+.meet-last{padding:60px 0 68px;background:linear-gradient(120deg,#ecf8fa,#d5f0e1)}.meet-last-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.meet-last h2{font-size:38px}.meet-last .cta-btn{min-height:54px}
+@media(max-width:1100px){.meet-container{width:min(100% - 56px,1280px)}.meet-grid{grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:35px}.meet-description{font-size:16px}.meet-image-grid{grid-template-columns:1fr 1.1fr}.meet-photo-tile.foliage{display:none}}
+@media(max-width:740px){.meet-container{width:calc(100% - 40px)}.meet-grid{grid-template-columns:1fr;gap:0}.meet-portrait-zone{padding-top:22px;justify-content:center}.meet-portrait-frame{height:430px;max-width:470px}.meet-portrait-caption{left:23px;bottom:24px}.meet-copy{padding:40px 0 55px}.meet-copy h1{font-size:clamp(38px,9vw,52px)}.meet-copy h1 span{font-size:.72em}.meet-lead{font-size:23px}.meet-credential{letter-spacing:.055em}.meet-description{font-size:16px}.meet-details{padding:55px 0}.meet-details-head{grid-template-columns:1fr;gap:20px}.meet-feature-grid{grid-template-columns:1fr;gap:12px}.meet-feature{padding:22px}.meet-feature h3{font-size:21px}.meet-philosophy{padding:58px 0}.meet-image-grid{grid-template-columns:1fr;gap:27px}.meet-photo-tile{min-height:245px}.meet-photo-tile img{height:245px}.meet-photo-tile.foliage{display:block}.meet-last-inner{align-items:flex-start;flex-direction:column}.meet-last h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.meet-screen *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Upgraded Micah portrait: true alpha cutout integrated into the page, no photo card. */
+#meet-micah .meet-hero { background:linear-gradient(118deg,#cbeef0 0%,#e8f7f9 40%,#f4fbfe 60%,#e8f7ee 100%); }
+#meet-micah .meet-grid { grid-template-columns:minmax(360px,.90fr) minmax(0,1.10fr);gap:clamp(34px,4.2vw,72px);min-height:665px; }
+#meet-micah .meet-portrait-zone { position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;padding-top:30px;isolation:isolate; }
+#meet-micah .meet-portrait-zone:before { content:'';position:absolute;z-index:-1;left:-17%;right:-15%;top:18%;bottom:0;background:radial-gradient(ellipse at 50% 58%,rgba(123,206,199,.38),rgba(158,217,216,.10) 58%,transparent 77%);pointer-events:none; }
+#meet-micah .meet-portrait-frame { width:min(100%,590px);height:auto;min-height:0;align-self:end;overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none;position:relative; }
+#meet-micah .meet-portrait-frame:after { display:none; }
+#meet-micah .meet-portrait-frame img { display:block;width:100%;height:auto;max-height:640px;object-fit:contain;object-position:center bottom;filter:drop-shadow(12px 15px 19px rgba(5,48,65,.15)); }
+#meet-micah .meet-portrait-caption { position:absolute;left:0;bottom:22px;right:auto;max-width:360px;padding:13px 19px 14px;border-left:4px solid #6bd53f;border-radius:0 12px 12px 0;background:rgba(6,42,69,.89);backdrop-filter:none;z-index:2;color:#fff; }
+#meet-micah .meet-portrait-caption strong { font-size:23px;line-height:1.2;margin-top:6px; }
+#meet-micah .meet-copy { padding-block:70px; }
+@media(max-width:1100px){#meet-micah .meet-grid{grid-template-columns:minmax(295px,.82fr) minmax(0,1.18fr);gap:28px}#meet-micah .meet-portrait-frame img{max-height:610px}}
+@media(max-width:740px){
+ #meet-micah .meet-grid { grid-template-columns:1fr;gap:0;min-height:0; }
+ #meet-micah .meet-portrait-zone { min-height:0;padding-top:24px;justify-content:center; }
+ #meet-micah .meet-portrait-frame { width:min(100%,410px);height:auto;max-width:410px; }
+ #meet-micah .meet-portrait-frame img { max-height:470px; }
+ #meet-micah .meet-portrait-caption { left:0;bottom:10px;max-width:min(100%,340px);padding:11px 15px; }
+ #meet-micah .meet-portrait-caption strong { font-size:19px; }
+ #meet-micah .meet-copy { padding:34px 0 54px; }
+}

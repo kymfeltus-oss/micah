@@ -1,0 +1,1 @@
+if (!location.hash) history.replaceState(null,"","#how-it-works");
