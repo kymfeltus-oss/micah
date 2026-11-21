@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 4175 --bind 127.0.0.1"
+  }
+}
