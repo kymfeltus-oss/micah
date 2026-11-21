@@ -1,1 +1,0 @@
-(function(){document.querySelectorAll('#how-it-works .how-more').forEach(button=>{button.addEventListener('click',()=>{const box=document.getElementById(button.getAttribute('aria-controls'));if(!box)return;const show=box.hidden;box.hidden=!show;button.setAttribute('aria-expanded',String(show));button.lastElementChild.textContent=show?'−':'+';});});})();
