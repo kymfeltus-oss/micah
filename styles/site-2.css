@@ -14,17 +14,17 @@ body{background:#082745}
 .approach-head{border-bottom-color:rgba(207,242,239,.24)}
 .approach .eyebrow{color:#c8f6df}
 .approach h2{color:#fff;text-shadow:0 2px 18px rgba(0,16,42,.16)}
-.approach h2 em{color:#a6f46e}
+.approach h2 em{color:#B8E1F1}
 .approach-head p{color:#d3e7ef;font-weight:500}
 .principle{border-right-color:rgba(205,236,237,.22);padding:21px 22px 22px 0}
-.principle .num{color:#a7ed77;font-size:13px}
+.principle .num{color:#B8E1F1;font-size:13px}
 .principle h3{color:#fff}
 .principle p{color:#d0e4ee;font-size:clamp(16px,1.08vw,18px)}
 .approach-brand-composition{min-height:188px;overflow:visible}
 .approach-brand-composition:before{background:radial-gradient(ellipse,rgba(137,233,195,.2),rgba(137,233,195,.03) 60%,transparent 78%)}
 .approach-brand-composition:after{border-top-color:rgba(166,245,178,.4)}
 .approach-brand-logo{background:rgba(244,255,254,.96);border-radius:20px;padding:15px 20px;box-shadow:0 14px 35px rgba(1,20,35,.17);filter:none;max-width:90%}
-.approach-brand-rule{background:linear-gradient(90deg,#40bfea,#a7f15c)}
+.approach-brand-rule{background:linear-gradient(90deg,#40bfea,#B8E1F1)}
 .approach-brand-phrase{color:#c6f5da;font-size:12px}
 .more{background:linear-gradient(112deg,rgba(2,24,46,.72),rgba(7,49,72,.58));border:1px solid rgba(193,239,222,.23);box-shadow:0 16px 34px rgba(0,18,33,.18)}
 .more p{color:#d4e6eb}

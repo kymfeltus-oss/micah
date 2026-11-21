@@ -16,3 +16,6 @@ Changes: reset now clears personal notes and results; 150-word truncation preser
 The original visual CSS overrides not proven redundant are retained to avoid redesigning the approved site. Conditions, PDF export, booking and navigation code are otherwise preserved.
 
 For best results with an `iframe` and local files, use a basic static HTTP server (for example `python -m http.server 8000`) if your browser restricts local file access. No build step is required.
+
+## Blue-accent brand refresh
+This version replaces the oversized lime accents with ocean-blue and mist-blue accents and uses inline SVG line icons in mobile navigation. Existing routes, screen content, scripts, embedded images, and functionality are preserved.
