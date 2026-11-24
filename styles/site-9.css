@@ -3,14 +3,6 @@
 @media(max-width:767px){
   html,body{max-width:100%;overflow-x:clip}
   body{background:#eaf5f6}
-  .site-header{height:calc(62px + env(safe-area-inset-top));min-height:0;padding:env(safe-area-inset-top) 16px 0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;gap:10px!important;position:sticky;top:0;z-index:60}
-  .site-header .brand{width:clamp(145px,43vw,194px)!important;min-width:0!important;height:54px!important;flex:0 1 auto!important}
-  .site-header .brand img{width:100%!important;height:50px!important;object-fit:contain!important}
-  .site-header .nav{display:none!important}
-  .site-header .cta-btn{padding:0 11px!important;height:42px!important;min-height:42px!important;max-width:150px;flex-shrink:0;font-size:11px!important;text-align:center;line-height:1.2;white-space:normal!important}
-  .mr-mobile-bottom{position:fixed!important;inset:auto 0 0!important;z-index:1000!important;display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:0!important;width:100%!important;height:calc(69px + env(safe-area-inset-bottom))!important;padding:5px 4px env(safe-area-inset-bottom)!important;box-shadow:0 -8px 30px rgba(6,31,57,.11);border-top:1px solid #c9dfe0;border-radius:0!important;background:#f7fcfd!important;align-items:stretch!important;overflow:visible!important}
-  .mr-mobile-bottom a{width:auto!important;min-width:0!important;max-width:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;padding:3px 1px!important;border:0!important;border-radius:10px!important;text-align:center!important;font-size:10px!important;font-weight:750!important;line-height:1.14!important;white-space:normal!important;overflow-wrap:normal!important;min-height:54px!important}
-  .mr-mobile-bottom a[aria-current="page"],.mr-mobile-bottom a.active{background:#e7f6e7!important;color:#246F95!important}
   #how-it-works.exact-how-screen{min-height:0!important;overflow:visible!important;padding-bottom:0!important;background:#f2faf9!important}
   #how-it-works .exact-how-top{min-height:0!important;padding:31px 20px 23px!important;overflow:hidden;isolation:isolate}
   #how-it-works .exact-how-top:before{inset:0 0 0 0!important;background:linear-gradient(90deg,rgba(246,252,251,.98) 0%,rgba(246,252,251,.93) 52%,rgba(246,252,251,.7) 100%),var(--exact-photo) center/cover no-repeat!important;opacity:1!important}
@@ -36,12 +28,9 @@
   #how-it-works .exact-how-outro{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important;padding:14px 20px 24px!important;max-width:520px!important}
   #how-it-works .exact-how-outro p{margin:0!important;font-size:16px!important;line-height:1.5!important}
   #how-it-works .exact-how-outro a{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;min-height:50px!important;font-size:15px!important;text-align:center}
-  footer,.footer{margin-bottom:calc(69px + env(safe-area-inset-bottom))!important}
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 @media(max-width:375px){
-  .site-header .brand{width:146px!important}
-  .site-header .cta-btn{max-width:134px!important;font-size:10px!important}
   #how-it-works .exact-how-top{padding-inline:17px!important}
   #how-it-works .exact-how-body{padding-inline:12px!important}
   #how-it-works .exact-timeline{padding-left:27px!important}
@@ -50,5 +39,4 @@
   #how-it-works .exact-step-thumb{width:59px!important;max-width:59px!important;height:75px!important}
   #how-it-works .exact-step-title{font-size:18px!important}
   #how-it-works .exact-step-desc{font-size:13px!important}
-  .mr-mobile-bottom a{font-size:9px!important}
 }
