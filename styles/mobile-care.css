@@ -124,7 +124,7 @@
     padding: 4px 1px;
     border-radius: 12px;
     color: var(--mr-mobile-ink);
-    font-size: clamp(.625rem, 2.65vw, .6875rem);
+    font-size: clamp(.59rem, 2.4vw, .6875rem);
     font-weight: 700;
     line-height: 1.2;
     overflow-wrap: anywhere;
@@ -388,10 +388,9 @@
   }
 
   .mr-mobile-home__scene {
-    /* Frame the photographic part of the supplied composition below its embedded buttons. */
     aspect-ratio: 941 / 240;
     min-height: min(38vw, 220px);
-    background: url("../assets/mobile-home-artwork.png") right 71.8% / auto 529.6% no-repeat;
+    background: url("../assets/image-0aea97c5177f528c.jpg") center 56% / cover no-repeat;
   }
 
   .mr-mobile-principles {
@@ -536,51 +535,60 @@
     gap: 8px;
   }
 
-  .mr-mobile-disclosures details {
-    border: 1px solid var(--mr-mobile-line);
-    border-radius: 14px;
-    background: #fff;
-  }
-
-  .mr-mobile-disclosures summary {
+  .mr-mobile-disclosures button {
     display: grid;
     grid-template-columns: 22px minmax(0, 1fr) 20px;
     min-height: 55px;
     align-items: center;
     gap: 10px;
     padding: 8px 12px;
+    border: 1px solid var(--mr-mobile-line);
     border-radius: 14px;
+    background: #fff;
+    color: var(--mr-mobile-ink);
     cursor: pointer;
     font-weight: 700;
-    list-style: none;
+    text-align: start;
   }
 
-  .mr-mobile-disclosures summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .mr-mobile-disclosures summary:focus-visible {
+  .mr-mobile-disclosures button:focus-visible {
     outline: 2px solid #197497;
     outline-offset: 2px;
   }
 
-  .mr-mobile-disclosures summary .mr-icon {
+  .mr-mobile-disclosures button .mr-icon {
     width: 21px;
     height: 21px;
     color: var(--mr-mobile-green);
   }
 
-  .mr-mobile-disclosures summary .mr-disclosure-chevron {
+  .mr-mobile-disclosures button .mr-disclosure-chevron {
     width: 17px;
     justify-self: end;
   }
 
-  .mr-mobile-disclosures details[open] .mr-disclosure-chevron {
-    transform: rotate(180deg);
+  .mr-provider-dialog {
+    inset: auto 0 env(safe-area-inset-bottom);
+    width: min(100% - 16px, 520px);
+    max-height: min(80dvh, 570px);
+    margin: 0 auto;
+  }
+
+  .mr-provider-dialog .mr-mobile-menu__panel {
+    padding: 16px 20px 24px;
+  }
+
+  .mr-provider-dialog form {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mr-provider-dialog h2 {
+    margin: 0 0 14px;
   }
 
   .mr-disclosure-body {
-    padding: 12px;
+    padding-top: 12px;
     border-top: 1px solid var(--mr-mobile-line);
     color: var(--mr-mobile-muted);
     line-height: 1.55;
@@ -605,6 +613,7 @@
     align-items: center;
     gap: 6px;
     margin-top: 4px;
+    padding: 0;
     color: var(--mr-mobile-green);
     font-weight: 700;
     text-underline-offset: 3px;

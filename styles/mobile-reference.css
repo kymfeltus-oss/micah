@@ -1,0 +1,221 @@
+@media (max-width: 767px), (max-width: 960px) and (orientation: landscape) and (pointer: coarse) {
+  /* Split each 941 × 1672 reference at the edges of its header and tab bar. */
+  :root:has(#home[data-artwork-ready]:not([hidden])) {
+    --mr-reference-image: var(--mr-home-artwork);
+    --mr-reference-header-end: 168;
+    --mr-reference-nav-start: 1424;
+  }
+
+  :root:has(#meet-micah[data-artwork-ready]:not([hidden])) {
+    --mr-reference-image: var(--mr-meet-micah-artwork);
+    --mr-reference-header-end: 124;
+    --mr-reference-nav-start: 1504;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) {
+    --mr-reference-width: 100vw;
+    --mr-reference-body-height: calc(var(--mr-reference-nav-start) - var(--mr-reference-header-end));
+    --mr-mobile-header-offset: calc(var(--mr-reference-width) * var(--mr-reference-header-end) / 941 + env(safe-area-inset-top));
+    --mr-mobile-nav-offset: calc(var(--mr-reference-width) * (1672 - var(--mr-reference-nav-start)) / 941 + env(safe-area-inset-bottom));
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) body {
+    background: #fff;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .site-header {
+    display: block;
+    width: min(100%, var(--mr-reference-width));
+    max-width: 100%;
+    margin-inline: auto;
+    padding: env(safe-area-inset-top) 0 0;
+    background: #fff var(--mr-reference-image) top center / 100% auto no-repeat content-box;
+    box-shadow: none;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .site-header::after {
+    display: none;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .site-header .brand {
+    position: absolute;
+    inset: env(safe-area-inset-top) 39% 0 0;
+    width: auto;
+    max-width: none;
+    height: auto;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .mr-mobile-header-actions {
+    position: absolute;
+    inset: env(safe-area-inset-top) 1.5% 0 64%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .mr-mobile-header-actions .mr-header-action {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .mr-mobile-bottom {
+    position: sticky;
+    grid-template-columns: 21% 19% 20% 21% 19%;
+    gap: 0;
+    width: min(100%, var(--mr-reference-width));
+    min-height: 0;
+    height: var(--mr-mobile-nav-offset);
+    margin-inline: auto;
+    padding: 0 0 env(safe-area-inset-bottom);
+    border: 0;
+    background: #fff var(--mr-reference-image) bottom center / 100% auto no-repeat content-box;
+    box-shadow: none;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) .mr-mobile-bottom a {
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  :root:has(#home[data-artwork-ready]:not([hidden]), #meet-micah[data-artwork-ready]:not([hidden])) #site-pages {
+    padding-bottom: 0;
+  }
+
+  :root:has([data-artwork-ready]:not([hidden])) :is(.brand img, .mr-mobile-header-actions svg, .mr-mobile-bottom a > *) {
+    opacity: 0;
+  }
+
+  #home[data-artwork-ready] {
+    background: #fff !important;
+  }
+
+  #meet-micah[data-artwork-ready] {
+    background: #fff;
+  }
+
+  [data-artwork-ready] .mr-mobile-care {
+    position: relative;
+    display: block;
+    width: min(100%, var(--mr-reference-width));
+    min-height: 0;
+    margin-inline: auto;
+    aspect-ratio: 941 / var(--mr-reference-body-height);
+    background: #fff var(--mr-reference-image) no-repeat;
+    background-size: 100% auto;
+    background-position: center calc(100% * var(--mr-reference-header-end) / (1672 - var(--mr-reference-body-height)));
+  }
+
+  [data-artwork-ready] .mr-mobile-care :is(.mr-mobile-home__hero, .mr-mobile-home__copy, .mr-mobile-actions, .mr-mobile-meet__hero, .mr-mobile-meet__intro, .mr-mobile-meet__identity, .mr-mobile-meet__actions, .mr-mobile-meet__details, .mr-mobile-meet__about, .mr-mobile-meet__booking, .mr-mobile-disclosures) {
+    display: contents;
+  }
+
+  [data-artwork-ready] .mr-mobile-care :is(.mr-mobile-home__scene, img) {
+    display: none;
+  }
+
+  [data-artwork-ready] .mr-mobile-care :is(h1, h2, p, .mr-mobile-principles) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  [data-artwork-ready] .mr-mobile-care [data-artwork-hit] {
+    position: absolute;
+    display: block;
+    inset: calc(100% * (var(--mr-hit-top) - var(--mr-reference-header-end)) / var(--mr-reference-body-height))
+           calc(100% * (941 - var(--mr-hit-right)) / 941)
+           calc(100% * (var(--mr-reference-nav-start) - var(--mr-hit-bottom)) / var(--mr-reference-body-height))
+           calc(100% * var(--mr-hit-left) / 941);
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    filter: none;
+  }
+
+  [data-artwork-ready] [data-artwork-hit] > * {
+    opacity: 0;
+  }
+
+  [data-artwork-ready] [data-artwork-hit]:focus-visible {
+    outline: 3px solid #0859a8;
+    outline-offset: -3px;
+  }
+
+  /* Control bounds in source image pixels. */
+  [data-artwork-hit="self-check"],
+  [data-artwork-hit="approach"] {
+    --mr-hit-left: 183;
+    --mr-hit-right: 758;
+  }
+
+  [data-artwork-hit="self-check"] {
+    --mr-hit-top: 655;
+    --mr-hit-bottom: 778;
+  }
+
+  [data-artwork-hit="approach"] {
+    --mr-hit-top: 778;
+    --mr-hit-bottom: 901;
+  }
+
+  [data-artwork-hit="appointment"],
+  [data-artwork-hit="question"] {
+    --mr-hit-left: 36;
+    --mr-hit-right: 485;
+  }
+
+  [data-artwork-hit="appointment"] {
+    --mr-hit-top: 521;
+    --mr-hit-bottom: 611;
+  }
+
+  [data-artwork-hit="question"] {
+    --mr-hit-top: 611;
+    --mr-hit-bottom: 694;
+  }
+
+  [data-provider-panel] {
+    --mr-hit-left: 35;
+    --mr-hit-right: 905;
+  }
+
+  [data-artwork-hit="education"] {
+    --mr-hit-top: 1129;
+    --mr-hit-bottom: 1193;
+  }
+
+  [data-artwork-hit="experience"] {
+    --mr-hit-top: 1193;
+    --mr-hit-bottom: 1257;
+  }
+
+  [data-artwork-hit="focus"] {
+    --mr-hit-top: 1257;
+    --mr-hit-bottom: 1321;
+  }
+
+  [data-artwork-hit="treatment"] {
+    --mr-hit-top: 1321;
+    --mr-hit-bottom: 1388;
+  }
+
+  [data-artwork-hit="booking"] {
+    --mr-hit-left: 485;
+    --mr-hit-right: 915;
+    --mr-hit-top: 1399;
+    --mr-hit-bottom: 1504;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  :root:has([data-artwork-ready]:not([hidden])) {
+    --mr-reference-width: min(100vw, 80svh);
+  }
+}
