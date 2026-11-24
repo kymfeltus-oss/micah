@@ -47,7 +47,7 @@
     const preview = document.getElementById('mobile-preview');
 
     function showRequestedPage() {
-      const site = new URL('../?view=mobile', location.href);
+      const site = new URL('../?view=mobile&v=mobile-approach-shell-2', location.href);
       site.hash = location.hash || 'home';
       preview.src = site.href;
     }
