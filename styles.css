@@ -2052,7 +2052,8 @@ body:has(#home:not([hidden])) footer,body:has(#meet-micah:not([hidden])) footer 
 
 }
 #meet-micah .mc-copy {
-    width: 57%;
+    z-index: 3;
+    width: 52%;
     padding: var(--space-18) 0 3.1875rem clamp(var(--space-14),4.4vw,2.125rem);
     justify-content: flex-start;
     text-align: left
@@ -2062,13 +2063,13 @@ body:has(#home:not([hidden])) footer,body:has(#meet-micah:not([hidden])) footer 
     font-size: clamp(9px,2.6vw,13px);
     letter-spacing: .18em;
     margin: var(--space-4) 0 var(--space-9);
-    white-space: nowrap
+    white-space: normal
 
 }
 #meet-micah .mc-copy h1 {
     font-size: clamp(27px,7.3vw,44px);
     line-height: 1.03;
-    white-space: nowrap
+    white-space: normal
 
 }
 #meet-micah .mc-credential {
@@ -2076,7 +2077,7 @@ body:has(#home:not([hidden])) footer,body:has(#meet-micah:not([hidden])) footer 
     letter-spacing: .13em;
     line-height: 1.28;
     margin-top: var(--space-6);
-    white-space: nowrap
+    white-space: normal
 
 }
 #meet-micah .mc-rule {
@@ -2087,14 +2088,14 @@ body:has(#home:not([hidden])) footer,body:has(#meet-micah:not([hidden])) footer 
 #meet-micah .mc-copy blockquote {
     font-size: clamp(16px,4.1vw,23px);
     line-height: 1.1;
-    white-space: nowrap
+    white-space: normal
 
 }
 #meet-micah .mc-portrait-stage {
     top: 20px;
     bottom: 28px;
-    right: -3%;
-    width: 54%;
+    right: -2%;
+    width: 46%;
     height: auto;
     min-height: 0;
     margin: 0;
@@ -2723,10 +2724,6 @@ body[data-route="approach"] .bottom-nav {
 }
 }
 @media (max-width: 699.98px) {
-  #meet-micah .mc-hero:after {
-    height: 22px
-
-}
 #meet-micah .mc-details summary > span:nth-child(2) {
     padding-left: var(--space-10)
 
@@ -3249,12 +3246,13 @@ body[data-route="approach"] .bottom-nav {
 
 }
 #contact .ct2-hero-wave {
-    height: 48px
+    bottom: 0;
+    height: 60px
 
 }
 #contact .ct2-body {
     width: calc(100% - 24px);
-    margin: -1.0625rem auto 0;
+    margin: -0.3125rem auto 0;
     padding-bottom: 1.9375rem
 
 }
@@ -3647,9 +3645,17 @@ header .desktop-nav a {
   text-underline-offset: .16em;
 }
 @media (max-width: 767.98px) {
+  #meet-micah .mc-hero {
+    height: auto;
+    min-height: clamp(340px,90vw,380px);
+
+}
   #meet-micah .mc-portrait-stage {
     top: 12px;
     bottom: 30px;
+    right: -1%;
+    width: 44%;
+    overflow: hidden;
 
 }
 #meet-micah .mc-portrait-stage img.mc-portrait {
@@ -3659,11 +3665,29 @@ header .desktop-nav a {
 
 }
 #meet-micah .mc-copy {
+    z-index: 3;
+    width: 52%;
     padding-bottom: 3.625rem;
+
+}
+#meet-micah .mc-hero:after {
+    bottom: 0;
+    height: 32px;
+
+}
+#meet-micah .values {
+    margin-top: -1px;
+
+}
+#meet-micah .mc-hero-actions {
+    width: 100%;
+    max-width: 210px;
 
 }
 #meet-micah .mc-hero-actions .cta {
     min-height: 48px;
+    grid-template-columns: 17px minmax(0,1fr) 17px;
+    white-space: normal;
 
 }
 }
