@@ -1,1 +1,0 @@
-/* Legacy forced How It Works startup redirect removed. Default route is Home. */

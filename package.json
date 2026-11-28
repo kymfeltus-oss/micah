@@ -1,6 +1,8 @@
 {
+  "name": "mr-gen-c-psychiatry",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "dev": "python -m http.server 4175 --bind 127.0.0.1"
+    "dev": "python -m http.server 4175"
   }
 }

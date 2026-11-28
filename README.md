@@ -1,21 +1,26 @@
-# M.R.-Gen-C Psychiatry — corrected website package
+# M.R.-Gen-C Psychiatry — Responsive Website
 
-Open `index.html` in your browser. All website assets are included in this folder.
+## Run
 
-- `index.html` — the connected website and shared header/footer/navigation
-- `pages/conditions.html` — isolated interactive Conditions explorer
-- `pages/self-check.html` — isolated interactive Self Check, notes, and branded PDF exporter
-- `styles/` — page-specific stylesheets extracted from the supplied site
-- `scripts/` — original JavaScript features, with the targeted Self Check fixes
-- `assets/` — extracted images used by the pages
+Open `index.html` directly in Chrome or Edge, or run `npm run dev` (requires Python and Node.js) and open http://127.0.0.1:4175. This package requires no npm dependencies or build process.
 
-The standalone companion HTML contains the same website with inline styles, scripts, and images.
+## What is included
 
-Changes: reset now clears personal notes and results; 150-word truncation preserves line breaks; mobile tap targets and H1 responsiveness improved; color/focus styles standardized; Self Check CSS root tokens consolidated. The appointment email uses a non-clinical template and does not automatically include private Self Check answers.
+All seven hash-routed pages, How Care Works, and the redesigned Contact page. The Conditions explorer and Self Check load on demand from standalone files in `embeds/`; official branding and artwork are served as optimized files from `assets/`.
 
-The original visual CSS overrides not proven redundant are retained to avoid redesigning the approved site. Conditions, PDF export, booking and navigation code are otherwise preserved.
+## Contact form behavior
 
-For best results with an `iframe` and local files, use a basic static HTTP server (for example `python -m http.server 8000`) if your browser restricts local file access. No build step is required.
+This is a static HTML site with no message-receiving backend. The form validates entered fields and opens the visitor's configured email application with a draft; the visitor must press Send in that application. If no mail application opens, use the **Copy inquiry instead** fallback. Do not submit medical or other sensitive information via general email.
 
-## Blue-accent brand refresh
-This version replaces the oversized lime accents with ocean-blue and mist-blue accents and uses inline SVG line icons in mobile navigation. Existing routes, screen content, scripts, embedded images, and functionality are preserved.
+## Appointments
+
+Booking links go to https://care.headway.co/providers/micah-craig in a separate tab. No payment is collected by this site.
+
+## Important
+
+Review clinical descriptions and contact availability with the practice before public launch. Browser testing results are documented separately; no website is deployed by this ZIP.
+
+
+## Image delivery and SEO
+
+Photographic assets and logos are external WebP files in `assets/`; decorative SVG artwork is also externalized. Image elements include intrinsic dimensions, and below-the-fold images load lazily. Open Graph and Twitter preview metadata plus MedicalBusiness/MedicalOrganization JSON-LD are included. Set the deployed website domain in the social image and schema URLs before publishing; the archive did not include a public site URL or a verified street address/service area.
