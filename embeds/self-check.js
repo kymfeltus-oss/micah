@@ -47,7 +47,7 @@
     mood: 'My thoughts, mood, or energy have felt difficult to manage.',
     inside: 'I may appear fine externally while experiencing difficulties internally.',
     understand: "I'd like a clearer understanding of what I've been experiencing.",
-    whole: 'I want to consider sleep, routines, lifestyle, and my goals�not medication alone.',
+    whole: 'I want to consider sleep, routines, lifestyle, and my goals—not medication alone.',
     begin: "I'm not sure where to begin and would appreciate help identifying useful questions.",
   });
 

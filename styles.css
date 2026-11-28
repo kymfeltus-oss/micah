@@ -829,6 +829,11 @@ body:is([data-route="approach"],[data-route="meet-micah"]) #site-pages > section
   object-fit: cover;
   display: block;
 }
+#how-it-works .cw-hero-banner-picture {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
 #how-it-works .cw-hero-grid {
   max-width: 1240px;
   margin: 0 auto;
@@ -1677,21 +1682,89 @@ body:has(#home:not([hidden])) footer {
   overflow: visible
 }
 #meet-micah .mc-hero {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: none;
+  aspect-ratio: 1920 / 450;
   margin: 0;
   padding: 0;
   background: transparent;
   overflow: hidden;
-  line-height: 0;
+  line-height: normal;
 }
 #meet-micah .mc-hero-banner-img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 3383 / 768;
-  object-fit: contain;
+  height: 100%;
+  aspect-ratio: 1920 / 450;
+  object-fit: cover;
   display: block;
   background-color: #fff;
+}
+#meet-micah .mc-hero-banner-picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+#meet-micah .mc-hero-copy {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 4%;
+  width: min(44%, 760px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: #fff;
+  transform: translateY(-50%);
+}
+#meet-micah .mc-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  color: #a7e925;
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+#meet-micah .mc-hero-eyebrow span {
+  flex: none;
+  width: 2.875rem;
+  height: 4px;
+  background: #a7e925;
+}
+#meet-micah .mc-hero-copy h1 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 3.35vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+#meet-micah .mc-hero-role {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: clamp(20px, 1.875vw, 27px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+#meet-micah .mc-hero-tagline {
+  margin: 0.25rem 0 0;
+  color: #a7e925;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 600;
+  line-height: 1.25;
 }
 #meet-micah .mc-copy {
   position: relative;
@@ -3546,6 +3619,25 @@ header .header-actions .iconbtn:not(.book):not(.menu-toggle) {
   }
 }
 
+@media (max-width: 999.98px) {
+  #meet-micah .mc-hero::before {
+    content: none;
+    display: none;
+  }
+
+  #meet-micah .mc-hero-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
 #approach .oa-hero-copy {
   margin-inline: auto;
 }
@@ -4223,6 +4315,136 @@ blockquote,
   background-color: #fff;
 }
 
+#approach .oa-hero-banner-picture {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
 body:is([data-route="approach"], [data-route="meet-micah"], [data-route="conditions"], [data-route="self-check"], [data-route="how-it-works"]) header > .topwave {
   display: none;
+}
+
+@media (max-width: 999.98px) {
+  #meet-micah .mc-hero {
+    aspect-ratio: 1 / 1;
+  }
+
+  #meet-micah .mc-hero-banner-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: transparent;
+  }
+
+  #meet-micah .mc-hero-copy {
+    top: 14%;
+    left: 5%;
+    width: 56%;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+    transform: none;
+  }
+
+  #meet-micah .mc-hero-eyebrow {
+    gap: clamp(0.35rem, 1.5vw, 0.75rem);
+    font-size: clamp(13px, 3.4vw, 26px);
+  }
+
+  #meet-micah .mc-hero-eyebrow span {
+    width: clamp(1.25rem, 6vw, 2.875rem);
+    height: 3px;
+  }
+
+  #meet-micah .mc-hero-copy h1 {
+    font-size: clamp(31px, 8vw, 61px);
+    line-height: 1.02;
+  }
+
+  #meet-micah .mc-hero-role {
+    font-size: clamp(17px, 4.4vw, 34px);
+    line-height: 1.15;
+  }
+
+  #meet-micah .mc-hero-tagline {
+    font-size: clamp(16px, 4.1vw, 31px);
+    line-height: 1.2;
+  }
+
+  #approach .oa-hero-banner-img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background-color: transparent;
+  }
+
+  #how-it-works .cw-hero-banner-img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 450px) {
+  #meet-micah .mc-hero-copy {
+    width: 58%;
+    max-width: 62%;
+  }
+
+  #meet-micah .mc-hero-copy h1 {
+    font-size: clamp(28px, 8vw, 32px);
+  }
+
+  #meet-micah .mc-hero-role {
+    font-size: clamp(15px, 4.35vw, 18px);
+  }
+
+  #meet-micah .mc-hero-tagline {
+    font-size: clamp(14px, 4vw, 17px);
+  }
+}
+
+@media (max-width: 768px) {
+  #meet-micah .mc-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    clip-path: inset(12% 0 15%);
+    background: linear-gradient(90deg, rgba(6, 26, 64, 0.94) 0%, rgba(8, 34, 82, 0.86) 48%, rgba(8, 34, 82, 0.28) 56%, rgba(8, 34, 82, 0) 64%);
+    pointer-events: none;
+  }
+
+  #meet-micah .mc-hero-copy {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 8px rgba(4, 18, 46, 0.65);
+  }
+}
+
+@media (min-width: 1000px) {
+  #meet-micah .mc-hero {
+    aspect-ratio: 2144 / 496;
+  }
+
+  #meet-micah .mc-hero-banner-img {
+    aspect-ratio: 2144 / 496;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  #meet-micah .mc-hero-banner-picture::after,
+  #meet-micah .mc-hero::before,
+  #meet-micah .mc-hero::after {
+    content: none;
+    display: none;
+  }
+
+  #meet-micah .mc-hero-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }

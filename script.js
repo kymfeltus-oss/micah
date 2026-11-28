@@ -9,7 +9,7 @@
   /** @typedef {{route: RouteId, menuOpen: boolean, viewController: AbortController|null, locationKey: string, announcementFrame: number|null}} NavigationState */
   /** @typedef {{menu: HTMLElement|null, toggles: HTMLButtonElement[], sections: HTMLElement[]}} NavigationElements */
   /** @typedef {{activeCard: HTMLButtonElement|null, initialized: boolean}} CareJourneyState */
-  /** @typedef {{root: HTMLElement, cards: HTMLButtonElement[], dots: HTMLElement[], counter: HTMLElement|null}} CareJourneyElements */
+  /** @typedef {{root: HTMLElement, cards: HTMLButtonElement[], progressNodes: HTMLButtonElement[]}} CareJourneyElements */
   /** @typedef {{preparedInquiry: string}} ContactFormState */
   /** @typedef {{careJourney: CareJourneyState, contact: ContactFormState}} RouteFeatureState */
   /** @typedef {{tag: 'path'|'circle'|'rect', attributes: Readonly<Record<string, string>>}} SvgShape */
@@ -26,11 +26,17 @@
     { id: 'home', title: 'Home' },
     { id: 'approach', title: 'Our Approach' },
     { id: 'meet-micah', title: 'Meet Micah' },
-    { id: 'conditions', title: 'Conditions Treated' },
+    { id: 'conditions', title: 'Treatment' },
     { id: 'self-check', title: 'Self Check' },
     { id: 'how-it-works', title: 'How It Works' },
     { id: 'contact', title: 'Contact' },
   ]);
+
+  /** Keep secondary pages highlighted within their nearest primary mobile section. @type {Partial<Record<RouteId, RouteId>>} */
+  const MOBILE_NAV_SECTION = Object.freeze({
+    conditions: 'self-check',
+    'how-it-works': 'approach',
+  });
 
   /** @type {Readonly<Record<IconName, readonly SvgShape[]>>} */
   const ICON_SHAPES = Object.freeze({
@@ -243,6 +249,12 @@
       if (link.hash === `#${state.route}`) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
+    const mobileSection = MOBILE_NAV_SECTION[state.route] || state.route;
+    /** @type {HTMLAnchorElement[]} */ (queryAll('.bottom-nav a[href^="#"]')).forEach((link) => {
+      if (mobileSection !== state.route && link.hash === `#${mobileSection}`) {
+        link.setAttribute('aria-current', 'location');
+      }
+    });
     document.title = `${route.title} | M.R.-Gen-C Psychiatry`;
   }
 
@@ -329,7 +341,9 @@
       focusRouteContent(routeId);
       announceRouteChange(state, routeId);
     }
-    if (shouldScrollToTop) window.scrollTo(0, 0);
+    if (shouldScrollToTop || routeChanged) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
     state.locationKey = getLocationKey();
   }
 
@@ -436,12 +450,35 @@
       elements.toggles[0]?.focus();
     });
     window.addEventListener('popstate', () => {
-      initializeSafely('history navigation', () => synchronizeRoute(state, elements, featureState, false, true));
+      initializeSafely('history navigation', () => synchronizeRoute(state, elements, featureState, true, true));
     });
     window.addEventListener('hashchange', () => {
       initializeSafely('hash navigation', () => synchronizeRoute(state, elements, featureState, true, true));
     });
-    initializeSafely('initial route', () => synchronizeRoute(state, elements, featureState, true, false));
+    const initialHash = window.location.hash;
+    const initialRoute = routeFromHash(initialHash);
+    const routeToShow = initialRoute || 'home';
+    const addressHash = initialHash && !initialRoute ? '#home' : initialHash;
+    if (initialHash) {
+      try {
+        window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+      } catch (error) {
+        reportError('suppress initial fragment scroll', error);
+      }
+    }
+    state.locationKey = getLocationKey();
+    initializeSafely('initial route', () => transitionRoute(state, elements, featureState, routeToShow, true, false));
+    if (initialHash) {
+      try {
+        window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}${addressHash}`);
+      } catch (error) {
+        reportError('restore initial route address', error);
+      }
+      state.locationKey = getLocationKey();
+      window.addEventListener('load', () => {
+        if (window.location.hash === addressHash) window.scrollTo(0, 0);
+      }, { once: true });
+    }
   }
 
   /** @param {MessageEvent<unknown>} event */
@@ -513,17 +550,19 @@
     return {
       root,
       cards: /** @type {HTMLButtonElement[]} */ (queryAll('.cw-card', root)),
-      dots: /** @type {HTMLElement[]} */ (queryAll('.cw-five-dots i', root)),
-      counter: /** @type {HTMLElement|null} */ (query('.cw-art-panel strong', root)),
+      progressNodes: /** @type {HTMLButtonElement[]} */ (queryAll('.cw-progress-node', root)),
     };
   }
 
   /** @param {CareJourneyElements} elements @param {HTMLButtonElement|null} card */
   function renderCareJourneyProgress(elements, card) {
     const index = card ? elements.cards.indexOf(card) : -1;
-    if (index < 0 || !elements.counter?.firstChild) return;
-    elements.counter.firstChild.nodeValue = String(index + 1).padStart(2, '0');
-    elements.dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+    elements.progressNodes.forEach((node, nodeIndex) => {
+      const isActive = nodeIndex === index;
+      node.classList.toggle('is-active', isActive);
+      if (isActive) node.setAttribute('aria-current', 'step');
+      else node.removeAttribute('aria-current');
+    });
   }
 
   /** @param {CareJourneyState} state @param {CareJourneyElements} elements */
@@ -531,11 +570,12 @@
     elements.cards.forEach((card) => {
       const isOpen = card === state.activeCard;
       card.setAttribute('aria-expanded', String(isOpen));
+      card.closest('.cw-item')?.classList.toggle('is-active', isOpen);
       const panelId = card.getAttribute('aria-controls');
       const panel = panelId ? document.getElementById(panelId) : null;
       if (panel) panel.hidden = !isOpen;
     });
-    if (state.activeCard) renderCareJourneyProgress(elements, state.activeCard);
+    renderCareJourneyProgress(elements, state.activeCard);
   }
 
   /** @param {CareJourneyState} state @param {CareJourneyElements} elements @param {HTMLButtonElement|null} card */
@@ -547,11 +587,11 @@
   /** @param {CareJourneyState} state @param {CareJourneyElements} elements @param {MouseEvent} event */
   function handleCareJourneyClick(state, elements, event) {
     if (!(event.target instanceof Element)) return;
-    const closeButton = event.target.closest('.cw-close');
-    if (closeButton instanceof HTMLButtonElement && elements.root.contains(closeButton)) {
-      const card = /** @type {HTMLButtonElement|null} */ (query('.cw-card', closeButton.closest('.cw-item')));
-      setActiveCareCard(state, elements, null);
-      card?.focus();
+    const progressNode = event.target.closest('.cw-progress-node');
+    if (progressNode instanceof HTMLButtonElement && elements.root.contains(progressNode)) {
+      const cardIndex = elements.progressNodes.indexOf(progressNode);
+      const card = elements.cards[cardIndex];
+      if (card) setActiveCareCard(state, elements, card);
       return;
     }
 
@@ -571,7 +611,7 @@
       state.initialized = true;
     }
 
-    // Delegation supports cards and close controls added after initialization.
+    // Delegation supports cards and progress controls added after initialization.
     root.addEventListener('click', (event) => handleCareJourneyClick(state, elements, event), { signal });
     root.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape' || !state.activeCard) return;
@@ -580,7 +620,7 @@
       activeCard.focus();
     }, { signal });
 
-    renderCareJourneyProgress(elements, state.activeCard || elements.cards[0] || null);
+    renderCareJourney(state, elements);
   }
 
   // Contact form data and UI

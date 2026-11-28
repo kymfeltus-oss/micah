@@ -2,7 +2,26 @@
 
 ## Run
 
-Open `index.html` directly in Chrome or Edge, or run `npm run dev` (requires Python and Node.js) and open http://127.0.0.1:4175. This package requires no npm dependencies or build process.
+Open `index.html` directly in Chrome or Edge, or run `npm run dev` (requires Node.js and Python). Run `npm run build` to copy only the static site files into `www/` for Tauri and Capacitor packaging; this build uses Node.js built-ins.
+
+## Tauri desktop packaging
+
+Run `npx tauri dev` to launch the desktop app in development. Run `npx tauri build` to create a production bundle; Tauri runs `npm run build` first and packages only `www/`. The Rust opener plugin routes Headway appointment and email links to the system's default apps without editing the site files.
+
+## PWA and Capacitor packaging
+
+The root `manifest.webmanifest` and icon files support browser installation. To generate native projects, install Capacitor and build the web assets:
+
+```powershell
+npm install @capacitor/core @capacitor/android @capacitor/ios
+npm install --save-dev @capacitor/cli
+npm run build
+npx cap add android
+npx cap add ios
+npx cap sync
+```
+
+After site changes, run `npm run build` followed by `npx cap sync`. Android builds require Android Studio and the Android SDK. Building/signing the iOS app requires macOS and Xcode.
 
 ## What is included
 

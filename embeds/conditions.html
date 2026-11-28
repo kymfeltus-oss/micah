@@ -1,17 +1,13 @@
 <!doctype html><html lang="en">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conditions treated</title><link rel="stylesheet" href="./conditions.css"></head>
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Treatment</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="./conditions.css?v=13"></head>
   <body>
     <main>
       <section id="explorer">
         <div class="hero">
-          <div class="hero-content">
-            <div class="eyebrow">CONDITIONS TREATED</div>
-            <h1>More than symptoms.<em>The whole picture.</em></h1>
-            <p>Every experience is different. Explore the concerns we commonly address, and see how thoughtful care begins with understanding your story.</p>
-          </div>
-          <div class="hero-aside" aria-hidden="true">
-            <div class="hero-aside-orbit"><span class="hero-aside-leaf">✦</span></div><span class="hero-aside-text">PERSONALIZED<br>PSYCHIATRIC CARE</span><div class="hero-aside-line"></div>
-          </div>
+          <picture class="treatment-hero-banner-picture">
+            <source media="(max-width: 999.98px)" srcset="../assets/treatment-mobile-banner.png">
+            <img class="treatment-hero-banner-img" src="../assets/treatment-banner.png" alt="Treatment: More than symptoms. The whole picture. Explore the concerns we commonly address and how thoughtful care begins with understanding your story." />
+          </picture>
         </div>
         <div class="wrap">
           <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#00666c" stroke-width="2.5"><circle cx="10" cy="10" r="7"/><path d="m15 15 7 7"/></svg><input id="search" type="search" aria-label="Search care topics" placeholder="Search care topics"></div>
@@ -21,11 +17,9 @@
         </div>
       </section>
       <section id="topic" hidden>
-        <div class="hero"><button class="back" id="back">← Conditions</button><div class="eyebrow" id="group"></div>
+        <div class="hero"><button class="back" id="back">← Treatment</button><div class="eyebrow" id="group"></div>
           <h1 id="title" tabindex="-1"></h1>
-          <p id="summary"></p>
-        </div>
-        <div class="wrap detailwrap">
+          <p id="summary"></p><div class="site-wave" aria-hidden="true"><svg viewBox="0 0 1600 48" preserveAspectRatio="none"><defs><linearGradient id="conditions-wave-accent-2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1600" y2="0"><stop offset="0" stop-color="#00326b"/><stop offset=".35" stop-color="#0692d2"/><stop offset=".68" stop-color="#00854b"/><stop offset="1" stop-color="#aed32a"/></linearGradient></defs><path class="wave-fill" d="M0 23 C185 7 333 41 520 27 C710 12 850 11 1032 23 C1227 37 1410 12 1600 20 L1600 48H0Z"/><path class="wave-accent" style="stroke:url(#conditions-wave-accent-2)" d="M0 23 C185 7 333 41 520 27 C710 12 850 11 1032 23 C1227 37 1410 12 1600 20"/></svg></div></div><div class="wrap detailwrap">
           <div class="panel" id="detail"></div>
           <div class="personal">
             <h2>A Personalized <span class="personal__accent">Approach</span></h2>
@@ -34,5 +28,5 @@
           <p class="muted">Educational information, not a diagnosis.</p>
         </div>
       </section>
-    </main><script src="./conditions.js" defer></script></body>
+    </main><script src="./conditions.js?v=2" defer></script></body>
 </html>

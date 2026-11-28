@@ -1,5 +1,5 @@
 // @ts-check
-/** @typedef {{type: 'height', height: number}|{type: 'self-check-scroll'}|{type: 'route', route: 'home'|'meet-micah'|'contact'}} ParentMessage */
+/** @typedef {{type: 'height', height: number}|{type: 'self-check-scroll'}|{type: 'route', route: 'home'|'approach'|'meet-micah'|'contact'}} ParentMessage */
 (() => {
   'use strict';
   const embedded = window.parent !== window;
@@ -12,7 +12,7 @@
     if (!(link instanceof HTMLAnchorElement)) return;
 
     const route = link.dataset.parentRoute;
-    if (route !== 'home' && route !== 'meet-micah' && route !== 'contact') return;
+    if (route !== 'home' && route !== 'approach' && route !== 'meet-micah' && route !== 'contact') return;
     event.preventDefault();
     send({ type: 'route', route });
   });

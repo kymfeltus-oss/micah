@@ -3,6 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "build": "node -e \"const fs=require('fs');fs.rmSync('www',{recursive:true,force:true});fs.mkdirSync('www');['index.html','styles.css','script.js','manifest.webmanifest','icon-192x192.png','icon-512x512.png','apple-touch-icon.png','assets','embeds'].forEach(f=>{if(fs.existsSync(f))fs.cpSync(f,'www/'+f,{recursive:true})})\"",
     "dev": "python -m http.server 4175"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.3",
+    "@tauri-apps/cli": "^2.12.6",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.3",
+    "@capacitor/core": "^8.6.3",
+    "@capacitor/ios": "^8.6.3"
   }
 }
